@@ -8,7 +8,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var showMenu = false
-    @State var selectedMenuItem: Menu = .compass
+    @AppStorage("selectedMenu") var selectedMenu: Menu = .compass
     @GestureState var press = false
     
     var longPress: some Gesture {
@@ -24,16 +24,18 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Color(.systemBackground).ignoresSafeArea()
-            switch selectedMenuItem {
+            switch selectedMenu {
             case .compass:
                 MessageView()
+            case .halfsheet:
+                MenuView()
             default:
                 Text("Text")
             }
         }
         .gesture(longPress)
         .sheet(isPresented: $showMenu){
-            MenuView(selectedMenu: $selectedMenuItem)
+            MenuView()
                 .presentationDetents([.medium,.large])
         }
     }
