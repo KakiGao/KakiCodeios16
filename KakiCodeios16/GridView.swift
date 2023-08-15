@@ -14,20 +14,46 @@ struct GridView: View {
                 Text("Votes")
                     .gridCellColumns(2)
                 Text("Rating")
+                    .gridColumnAlignment(.trailing)
             }
+            .font(.footnote)
+            .foregroundColor(.secondary)
             Divider()
                 .gridCellUnsizedAxes(.horizontal)
             GridRow {
                 Text("4")
+                    .frame(width: 30, alignment: .trailing)
                 ProgressView(value: 0.1)
                     .frame(maxWidth: 250)
                 RatingView(rating: 1)
             }
             GridRow {
                 Text("21")
+                    .frame(width: 30, alignment: .trailing)
                 ProgressView(value: 0.2)
                     .frame(maxWidth: 250)
                 RatingView(rating: 2)
+            }
+            GridRow {
+                Text("5")
+                    .frame(width: 30, alignment: .trailing)
+                ProgressView(value: 0.1)
+                    .frame(maxWidth: 250)
+                RatingView(rating: 3)
+            }
+            GridRow {
+                Text("52")
+                    .frame(width: 30, alignment: .trailing)
+                ProgressView(value: 0.5)
+                    .frame(maxWidth: 250)
+                RatingView(rating: 4)
+            }
+            GridRow {
+                Text("67")
+                    .frame(width: 30, alignment: .trailing)
+                ProgressView(value: 0.6)
+                    .frame(maxWidth: 250)
+                RatingView(rating: 5)
             }
         }
         .padding(20)
